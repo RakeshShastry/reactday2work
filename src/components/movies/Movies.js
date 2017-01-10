@@ -6,7 +6,7 @@ export default class Movies extends React.Component{
     constructor(props){
         super(props);
 				this.db = new PouchDB('movies');
-				this.state={moviedata:[]};
+				this.state={moviedata:[],movies:[]};
 				this.fetch=this.fetch.bind(this);
 				this.clear=this.clear.bind(this);
 				this.addmovie=this.addmovie.bind(this);
@@ -46,7 +46,8 @@ export default class Movies extends React.Component{
 				include_docs: true,
 				attachments: true
 			}).then(function (result) {
-				console.log(result)
+			   const movies = result.rows;
+      this.setState({movies});
 			}).catch(function (err) {
 				console.log(err);
 			});
@@ -87,6 +88,28 @@ export default class Movies extends React.Component{
 								}
 								</tbody>
   						</table>
+							 <table className="table table-striped">
+            <thead>
+              <tr>
+                <th>Title</th>
+                <th>Year</th>
+                <th>Poster</th>
+              </tr>
+            </thead>
+            <tbody>
+              {
+                this.state.movies.map((r, i) => {
+                  return (
+                    <tr key={i}>
+                      <td>{r.doc._id}</td>
+                      <td>{r.doc.year}</td>
+                      <td><img src={r.doc.poster}/></td>
+                    </tr>
+                  );
+                })
+              }
+            </tbody>
+          </table>
 						</div>
 						</div>
 						</div>
