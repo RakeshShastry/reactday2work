@@ -23,6 +23,7 @@ export default () =>{
                     <li className="active"><Link to="/boxes/box">Box Example</Link></li>
                     <li className="active"><Link to="/random">Random</Link></li>
                     <li className="active"><Link to="/conversion">Conversion</Link></li>
+                    <li className="active"><Link to="/movies/movies">Movies</Link></li>
                     <li className="active"><Link to="/faq">FAQ</Link></li>
                 </ul>
             </div>

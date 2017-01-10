@@ -7,6 +7,7 @@ import About from './components/About';
 import Random from './components/Random';
 import Box from './components/boxes/Boxes';
 import Conversion from './components/Conversion';
+import Movies from './components/movies/Movies';
 import Faq from './components/Faq';
 
 ReactDOM.render(
@@ -17,6 +18,7 @@ ReactDOM.render(
       <Route path="faq" component={Faq} />
       <Route path="random" component={Random} />
        <Route path="conversion" component={Conversion} />
+       <Route path="movies/movies" component={Movies} />
       <Route path="boxes/box" component={Box} />
     </Route>
   </Router>,
